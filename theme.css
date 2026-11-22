@@ -1,0 +1,78 @@
+/* ===== Shared light/dark theme =====
+   Follows the device (system) setting, and can be overridden with the toggle button. */
+
+/* LIGHT (soft, not pure white) */
+:root {
+    color-scheme: light;
+    --bg:#f1f3f8; --surface:#ffffff; --border:#d5dae6;
+    --text:#232938; --muted:#5c6479;
+    --accent:#e9b44c;          /* fill: buttons, tab underline, selected seat */
+    --accent-text:#8a5f00;     /* gold used as a text color */
+    --link:#1f4fc4;
+    --footer:#e3e7f0;
+    --shadow:0 6px 18px rgba(30,40,70,.16);
+    --chip:rgba(255,255,255,.92);
+    --placeholder:#8088a0;
+    --seat:#6577a3; --seat-hover:#4f628f; --seat-taken:#c25a5a;
+    --screen:#6f8fb8;
+    --err-bg:#fbe4e4;  --err-fg:#8a1f1f;  --err-bd:#efb3b3;
+    --ok-bg:#e1f4e8;   --ok-fg:#1d5a3a;   --ok-bd:#a9d8bc;
+    --wait-bg:#fdf1d0; --wait-fg:#6b4d00; --wait-bd:#ecd48a;
+    --danger:#a32020;
+}
+
+/* DARK (soft, not pure black) */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --bg:#151922; --surface:#1e2431; --border:#323a4d;
+        --text:#e8eaf1; --muted:#a9afc0;
+        --accent-text:#e9b44c;
+        --link:#8fb3ff;
+        --footer:#0f1218;
+        --shadow:0 6px 18px rgba(0,0,0,.35);
+        --chip:rgba(21,25,34,.82);
+        --placeholder:#7c849a;
+        --seat:#7585ad; --seat-hover:#93a2cc; --seat-taken:#b34a4a;
+        --screen:#4f6a8f;
+        --err-bg:#3a2227;  --err-fg:#f2b0b0;  --err-bd:#6b3a40;
+        --ok-bg:#1d3328;   --ok-fg:#98dcb8;   --ok-bd:#2f5a44;
+        --wait-bg:#38311f; --wait-fg:#f0d48a; --wait-bd:#645426;
+        --danger:#f0a3a3;
+    }
+}
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg:#151922; --surface:#1e2431; --border:#323a4d;
+    --text:#e8eaf1; --muted:#a9afc0;
+    --accent-text:#e9b44c;
+    --link:#8fb3ff;
+    --footer:#0f1218;
+    --shadow:0 6px 18px rgba(0,0,0,.35);
+    --chip:rgba(21,25,34,.82);
+    --placeholder:#7c849a;
+    --seat:#7585ad; --seat-hover:#93a2cc; --seat-taken:#b34a4a;
+    --screen:#4f6a8f;
+    --err-bg:#3a2227;  --err-fg:#f2b0b0;  --err-bd:#6b3a40;
+    --ok-bg:#1d3328;   --ok-fg:#98dcb8;   --ok-bd:#2f5a44;
+    --wait-bg:#38311f; --wait-fg:#f0d48a; --wait-bd:#645426;
+    --danger:#f0a3a3;
+}
+
+/* Toggle button */
+.theme-btn { background:none; border:1px solid var(--border); border-radius:8px; width:36px; height:36px; font-size:17px; line-height:1; cursor:pointer; vertical-align:middle; margin-right:6px; color:var(--text); }
+.theme-btn:hover { background:var(--bg); }
+.theme-btn:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+
+/* ===== Cinema location / map (movies.php) ===== */
+.loc { display:flex; gap:24px; flex-wrap:wrap; align-items:stretch; }
+.loc-info { flex:0 0 280px; font-size:17px; }
+.loc-info h4 { margin:0 0 4px; font-size:16px; font-weight:600; }
+.loc-info p { margin:0 0 14px; }
+.loc-info input { width:100%; padding:10px 12px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text); font:inherit; font-size:15px; margin-bottom:10px; }
+.loc-info input::placeholder { color:var(--placeholder); }
+.loc-btn { display:block; width:100%; text-align:center; background:var(--accent); color:#1a1405; font:inherit; font-size:15px; font-weight:700; padding:10px 14px; border-radius:8px; border:0; cursor:pointer; text-decoration:none; margin-bottom:10px; }
+.loc-btn.alt { background:var(--surface); color:var(--text); border:2px solid var(--border); }
+.loc-btn.alt:hover { border-color:var(--accent); }
+.loc-map { flex:1 1 360px; min-height:380px; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+.loc-map iframe { width:100%; height:100%; min-height:380px; border:0; display:block; }
